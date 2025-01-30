@@ -1,8 +1,9 @@
 "use client";
 
 import { useCurrentAccount, useConnectWallet, useDisconnectWallet } from "@mysten/dapp-kit";
+import CustomWalletProvider from "./WalletProvider";
 
-export default function WalletConnect() {
+function WalletConnectContent() {
   const account = useCurrentAccount();
   const connectWallet = useConnectWallet();
   const disconnectWallet = useDisconnectWallet();
@@ -28,5 +29,13 @@ export default function WalletConnect() {
         </button>
       )}
     </div>
+  );
+}
+
+export default function WalletConnect() {
+  return (
+    <CustomWalletProvider>
+      <WalletConnectContent />
+    </CustomWalletProvider>
   );
 }
