@@ -1,29 +1,32 @@
-// src/components/WalletConnect.tsx
-import { useEffect, useState } from 'react';
-import { WalletProvider, useWallet } from '@mysten/wallet-standard';
+"use client";
 
-function WalletConnect() {
-  const { wallets, select } = useWallet();
-  const [selectedWallet, setSelectedWallet] = useState(null);
+import { useCurrentAccount, useConnectWallet, useDisconnectWallet } from "@mysten/dapp-kit";
 
-  useEffect(() => {
-    if (wallets.length > 0) {
-      setSelectedWallet(wallets[0]);
-      select(wallets[0].name);
-    }
-  }, [wallets, select]);
+export default function WalletConnect() {
+  const account = useCurrentAccount();
+  const connectWallet = useConnectWallet();
+  const disconnectWallet = useDisconnectWallet();
 
-  if (!selectedWallet) {
-    return <div>No wallet found</div>;
-  }
-
-  return <div>Connected to {selectedWallet.name}</div>;
-}
-
-export default function App() {
   return (
-    <WalletProvider>
-      <WalletConnect />
-    </WalletProvider>
+    <div className="flex flex-col items-center gap-4 p-4 border rounded-md shadow-md">
+      {account ? (
+        <div>
+          <p>Connected: {account.address}</p>
+          <button
+            className="px-4 py-2 text-white bg-red-500 rounded hover:bg-red-600"
+            onClick={disconnectWallet}
+          >
+            Disconnect
+          </button>
+        </div>
+      ) : (
+        <button
+          className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+          onClick={connectWallet}
+        >
+          Connect Wallet
+        </button>
+      )}
+    </div>
   );
 }
