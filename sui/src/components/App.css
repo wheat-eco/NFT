@@ -1,0 +1,18 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  box-sizing: content-box;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 36px;
+  background-image: linear-gradient(to right bottom, #10c0f6, #c0c7ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
