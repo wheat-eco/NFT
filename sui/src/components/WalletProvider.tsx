@@ -1,18 +1,13 @@
-// src/components/WalletProvider.tsx
-"use client";
+'use client'
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { WalletProvider, SuiClientProvider } from '@mysten/dapp-kit';
+import { WalletProvider } from '@suiet/wallet-kit'
+import '@suiet/wallet-kit/style.css'
 
-// Create a single instance of QueryClient
-const queryClient = new QueryClient();
-
-export default function CustomWalletProvider({ children }: { children: React.ReactNode }) {
+export function WalletWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <SuiClientProvider>
-        <WalletProvider>{children}</WalletProvider>
-      </SuiClientProvider>
-    </QueryClientProvider>
-  );
+    <WalletProvider>
+      {children}
+    </WalletProvider>
+  )
 }
+
