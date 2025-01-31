@@ -1,13 +1,18 @@
-import { WalletWrapper } from '@/components/WalletWrapper'
-export default function Home() {
-  return (
-   
-      <WalletWrapper>
-        <div className="flex flex-col items-center justify-center min-h-screen">
-        <h1 className="text-2xl font-bold">Sui Token Launchpad</h1>
-        </div>
-      </WalletWrapper>
-    
-  )
-}
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { WalletProvider } from "@suiet/wallet-kit";
 
+import App from "./App";
+// import App from "./01-useWallet";
+// import App from "./02-mintNft";
+
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
+root.render(
+  <StrictMode>
+    <WalletProvider>
+      <App />
+    </WalletProvider>
+  </StrictMode>
+);
