@@ -1,4 +1,4 @@
-'use client '
+'use client'
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
