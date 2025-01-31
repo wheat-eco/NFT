@@ -4,7 +4,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { WalletProvider } from "@suiet/wallet-kit";
 
-import App from "./App";
+import App from '@/components/App'
 // import App from "./01-useWallet";
 // import App from "./02-mintNft";
 
