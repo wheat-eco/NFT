@@ -16,12 +16,11 @@ import {
 
 export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const menuItems = [
-    { icon: LayoutDashboard, label: "Dashboard", href: "/" },
     { icon: Wallet, label: "Wallet", href: "/wallet" },
     { icon: PieChart, label: "Staking", href: "/staking" },
     { icon: Lock, label: "Locks", href: "/locks" },
-    { icon: Settings, label: "Settings", href: "/settings" },
-    { icon: HelpCircle, label: "Help", href: "/help" },
+
+  
   ]
 
   return (

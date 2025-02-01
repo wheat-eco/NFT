@@ -15,8 +15,9 @@ export function DashboardContent() {
     <main className="max-w-4xl mx-auto p-6 space-y-6">
       {/* WHEAT Header */}
       <div className="flex items-center gap-3 mb-6">
-        <h1 className="text-3xl font-bold">WHEAT</h1>
+        <h1 className="text-3xl font-bold">WheatChain</h1>
         <Image src="/sui-logo.png" alt="SUI Logo" width={30} height={30} />
+        <p className="text-3xl font-bold">Sui</p>
       </div>
 
       {/* Wallet Address */}
@@ -49,10 +50,8 @@ export function DashboardContent() {
             <a href="#" className="text-muted-foreground hover:text-foreground">
               About
             </a>
-            <a href="#" className="text-muted-foreground hover:text-foreground">
-              Docs
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-foreground">
+
+           <a href="#" className="text-muted-foreground hover:text-foreground">
               App
             </a>
           </div>
