@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image"
-import { Copy } from "lucide-react"
+import { Copy, Twitter, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 
@@ -41,18 +41,25 @@ export function DashboardContent() {
       <footer className="fixed bottom-0 left-0 right-0 border-t bg-background p-4">
         <div className="flex items-center justify-between max-w-4xl mx-auto">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            Powered by{" "}
-            <a href="#" className="text-foreground hover:underline">
-              unvest.io
-            </a>
+            Powered by <Image src="/cetus-logo.png" alt="Cetus Logo" width={20} height={20} />
+            <span className="font-medium">Cetus</span>
           </div>
-          <div className="flex items-center gap-6 text-sm">
-            <a href="#" className="text-muted-foreground hover:text-foreground">
-              About
+          <div className="flex items-center gap-4">
+            <a
+              href="https://twitter.com/WheatChain"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground"
+            >
+              <Twitter className="h-5 w-5" />
             </a>
-
-           <a href="#" className="text-muted-foreground hover:text-foreground">
-              App
+            <a
+              href="https://t.me/WheatChain"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground"
+            >
+              <Send className="h-5 w-5" />
             </a>
           </div>
         </div>
