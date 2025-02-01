@@ -65,7 +65,7 @@ function ActionCard({ title, iconSrc }: { title: string; iconSrc: string }) {
   return (
     <Card className="p-4 border-2 hover:bg-accent transition-colors cursor-pointer">
       <Button variant="ghost" className="w-full h-16 flex flex-col items-center justify-center gap-2">
-        <Image src={iconSrc || "/placeholder.svg"} alt={title} width={24} height={24} />
+        <Image src={iconSrc || "/cetus-logo.png"} alt={title} width={24} height={24} />
         <span className="text-sm font-medium">{title}</span>
       </Button>
     </Card>
