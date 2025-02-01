@@ -29,7 +29,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
       <div className="flex min-h-screen">
         <Sidebar className="w-64">
           <SidebarHeader className="border-b px-6 py-4 flex items-center gap-3">
-            <Image src="/wheat-logo.png" alt="WheatChain Logo" width={40} height={40} />
+            <Image src="/logo.png" alt="WheatChain Logo" width={40} height={40} />
             <h2 className="text-xl font-bold">WheatChain</h2>
           </SidebarHeader>
           <SidebarContent>
