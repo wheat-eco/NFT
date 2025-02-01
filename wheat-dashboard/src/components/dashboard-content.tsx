@@ -26,8 +26,8 @@ export function DashboardContent() {
       {/* Action Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <ActionCard title="Claim SWHIT" iconSrc="/claim.png" />
-        <ActionCard title="Staking" iconSrc="/staking.png" />
-        <ActionCard title="Token Locks" iconSrc="/lock.png" />
+        <ActionCard title="Staking" iconSrc="/staking-1.png" />
+        <ActionCard title="Token Locks" iconSrc="/lock-1.png" />
       </div>
 
       {/* Footer */}
