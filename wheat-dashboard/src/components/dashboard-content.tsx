@@ -1,58 +1,42 @@
 "use client"
 import Image from "next/image"
-import { Copy, Twitter, Send } from "lucide-react"
+import { Twitter, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 
 export function DashboardContent() {
-  const walletAddress = "0xb0592e97...6df4d6d1"
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(walletAddress)
-  }
-
   return (
-    <main className="max-w-4xl mx-auto p-6 space-y-6">
-      {/* Wallet Address */}
-      <Card className="p-3 border-2">
-        <div className="flex items-center gap-2">
-          <span className="font-mono text-sm">{walletAddress}</span>
-          <Button variant="ghost" size="sm" onClick={handleCopy}>
-            <Copy className="h-4 w-4" />
-          </Button>
-        </div>
-      </Card>
-
+    <main className="max-w-4xl mx-auto p-6 space-y-8 bg-[#0A0B0D] min-h-screen">
       {/* Action Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <ActionCard title="Claim SWHIT" iconSrc="/claim.png" />
         <ActionCard title="Staking" iconSrc="/staking-1.png" />
         <ActionCard title="Token Locks" iconSrc="/lock-1.png" />
       </div>
 
       {/* Footer */}
-      <footer className="fixed bottom-0 left-0 right-0 border-t bg-background p-3">
+      <footer className="fixed bottom-0 left-0 right-0 border-t border-zinc-800 bg-[#0A0B0D] p-4">
         <div className="flex items-center justify-between max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            Powered by <Image src="/cetus-logo.png" alt="Cetus Logo" width={16} height={16} />
-            <span className="font-medium">Cetus</span>
+          <div className="flex items-center gap-2 text-sm text-zinc-400">
+            Powered by <Image src="/cetus-logo.png" alt="Cetus Logo" width={20} height={20} />
+            <span className="font-medium text-white">Cetus</span>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <a
               href="https://twitter.com/WheatChain"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground"
+              className="text-zinc-400 hover:text-white transition-colors"
             >
-              <Twitter className="h-4 w-4" />
+              <Twitter className="h-5 w-5" />
             </a>
             <a
               href="https://t.me/WheatChain"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground"
+              className="text-zinc-400 hover:text-white transition-colors"
             >
-              <Send className="h-4 w-4" />
+              <Send className="h-5 w-5" />
             </a>
           </div>
         </div>
@@ -63,10 +47,13 @@ export function DashboardContent() {
 
 function ActionCard({ title, iconSrc }: { title: string; iconSrc: string }) {
   return (
-    <Card className="p-4 border-2 hover:bg-accent transition-colors cursor-pointer">
-      <Button variant="ghost" className="w-full h-16 flex flex-col items-center justify-center gap-2">
-        <Image src={iconSrc || "/cetus-logo.png"} alt={title} width={24} height={24} />
-        <span className="text-sm font-medium">{title}</span>
+    <Card className="bg-[#0F1114] border-2 border-zinc-800 hover:border-zinc-700 transition-colors cursor-pointer overflow-hidden">
+      <Button
+        variant="ghost"
+        className="w-full py-12 flex flex-col items-center justify-center gap-4 hover:bg-zinc-800/50"
+      >
+        <Image src={iconSrc || "/placeholder.svg"} alt={title} width={48} height={48} className="opacity-90" />
+        <span className="text-lg font-medium text-white">{title}</span>
       </Button>
     </Card>
   )

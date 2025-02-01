@@ -3,9 +3,11 @@ import { DashboardContent } from "@/components/dashboard-content"
 
 export default function Home() {
   return (
-    <DashboardLayout>
-      <DashboardContent />
-    </DashboardLayout>
+    <div className="bg-[#0A0B0D] text-white">
+      <DashboardLayout>
+        <DashboardContent />
+      </DashboardLayout>
+    </div>
   )
 }
 

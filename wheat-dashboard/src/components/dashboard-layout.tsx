@@ -21,8 +21,8 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen">
-        <Sidebar className="w-64">
+      <div className="flex min-h-screen bg-[#0A0B0D]">
+        <Sidebar className="w-64 border-r border-zinc-800 bg-[#0A0B0D]">
           <SidebarContent>
             <SidebarMenu>
               {menuItems.map((item) => (
@@ -30,9 +30,9 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
                   <SidebarMenuButton asChild>
                     <a
                       href={item.href}
-                      className="flex items-center gap-4 text-sm py-2 px-4 hover:bg-accent transition-colors"
+                      className="flex items-center gap-4 text-base py-3 px-6 text-zinc-400 hover:bg-zinc-800/50 hover:text-white transition-colors"
                     >
-                      <item.icon className="h-4 w-4" />
+                      <item.icon className="h-5 w-5" />
                       <span>{item.label}</span>
                     </a>
                   </SidebarMenuButton>
