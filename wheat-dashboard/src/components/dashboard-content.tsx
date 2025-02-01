@@ -1,6 +1,6 @@
 "use client"
-
-import { Copy, Download, Lock, Coins } from "lucide-react"
+import Image from "next/image"
+import { Copy } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 
@@ -15,42 +15,25 @@ export function DashboardContent() {
     <main className="max-w-4xl mx-auto p-6 space-y-6">
       {/* WHEAT Header */}
       <div className="flex items-center gap-3 mb-6">
-        <h1 className="text-2xl font-bold">WHEAT</h1>
-        <span className="bg-emerald-600 text-white px-3 py-1 rounded-full text-sm">SUI</span>
+        <h1 className="text-3xl font-bold">WHEAT</h1>
+        <Image src="/sui-logo.png" alt="SUI Logo" width={30} height={30} />
       </div>
 
       {/* Wallet Address */}
-      <Card className="p-4">
+      <Card className="p-4 border-2">
         <div className="flex items-center gap-2">
-          <span className="font-mono text-sm">{walletAddress}</span>
+          <span className="font-mono text-lg">{walletAddress}</span>
           <Button variant="ghost" size="icon" onClick={handleCopy}>
-            <Copy className="h-4 w-4" />
+            <Copy className="h-5 w-5" />
           </Button>
         </div>
       </Card>
 
       {/* Action Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Card className="p-6 hover:bg-accent transition-colors cursor-pointer">
-          <Button variant="ghost" className="w-full h-32 flex flex-col items-center justify-center gap-3">
-            <Download className="h-8 w-8" />
-            <span className="text-lg font-medium">Claim WHEAT</span>
-          </Button>
-        </Card>
-
-        <Card className="p-6 hover:bg-accent transition-colors cursor-pointer">
-          <Button variant="ghost" className="w-full h-32 flex flex-col items-center justify-center gap-3">
-            <Coins className="h-8 w-8" />
-            <span className="text-lg font-medium">Staking</span>
-          </Button>
-        </Card>
-
-        <Card className="p-6 hover:bg-accent transition-colors cursor-pointer">
-          <Button variant="ghost" className="w-full h-32 flex flex-col items-center justify-center gap-3">
-            <Lock className="h-8 w-8" />
-            <span className="text-lg font-medium">Token Locks</span>
-          </Button>
-        </Card>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <ActionCard title="Claim WHEAT" iconSrc="/claim-icon.png" />
+        <ActionCard title="Staking" iconSrc="/staking-icon.png" />
+        <ActionCard title="Token Locks" iconSrc="/lock-icon.png" />
       </div>
 
       {/* Footer */}
@@ -62,7 +45,7 @@ export function DashboardContent() {
               unvest.io
             </a>
           </div>
-          <div className="flex items-center gap-4 text-sm">
+          <div className="flex items-center gap-6 text-sm">
             <a href="#" className="text-muted-foreground hover:text-foreground">
               About
             </a>
@@ -76,6 +59,17 @@ export function DashboardContent() {
         </div>
       </footer>
     </main>
+  )
+}
+
+function ActionCard({ title, iconSrc }: { title: string; iconSrc: string }) {
+  return (
+    <Card className="p-6 border-2 hover:bg-accent transition-colors cursor-pointer">
+      <Button variant="ghost" className="w-full h-24 flex flex-col items-center justify-center gap-3">
+        <Image src={iconSrc || "/placeholder.svg"} alt={title} width={32} height={32} />
+        <span className="text-lg font-medium">{title}</span>
+      </Button>
+    </Card>
   )
 }
 
