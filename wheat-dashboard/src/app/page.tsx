@@ -1,13 +1,11 @@
-import { DashboardLayout } from "@/components/dashboard-layout"
-import { DashboardContent } from "@/components/dashboard-content"
+import { MobileLayout } from "@/components/mobile-layout"
+import { DashboardView } from "@/components/dashboard-view"
 
 export default function Home() {
   return (
-    <div className="bg-[#0A0B0D] text-white">
-      <DashboardLayout>
-        <DashboardContent />
-      </DashboardLayout>
-    </div>
+    <MobileLayout>
+      <DashboardView />
+    </MobileLayout>
   )
 }
 
