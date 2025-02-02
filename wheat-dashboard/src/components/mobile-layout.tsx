@@ -1,17 +1,18 @@
 "use client"
-
-import { useState, type ReactNode } from "react"
-import { Wallet, BarChartIcon as ChartBar, Lock, Home } from "lucide-react"
+import { usePathname, useRouter } from "next/navigation"
+import { Wallet, BarChartIcon as ChartBar, Lock, Home, ArrowLeftRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-export function MobileLayout({ children }: { children: ReactNode }) {
-  const [activeTab, setActiveTab] = useState("home")
+export function MobileLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname()
+  const router = useRouter()
 
   const navItems = [
-    { id: "home", icon: Home, label: "Home" },
-    { id: "wallet", icon: Wallet, label: "Wallet" },
-    { id: "staking", icon: ChartBar, label: "Staking" },
-    { id: "locks", icon: Lock, label: "Locks" },
+    { id: "/", icon: Home, label: "Home" },
+    { id: "/swap", icon: ArrowLeftRight, label: "Swap" },
+    { id: "/wallet", icon: Wallet, label: "Wallet" },
+    { id: "/staking", icon: ChartBar, label: "Staking" },
+    { id: "/locks", icon: Lock, label: "Locks" },
   ]
 
   return (
@@ -24,11 +25,11 @@ export function MobileLayout({ children }: { children: ReactNode }) {
           {navItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => setActiveTab(item.id)}
+              onClick={() => router.push(item.id)}
               className={cn(
                 "flex flex-col items-center justify-center w-full h-full gap-1",
                 "text-zinc-500 transition-colors",
-                activeTab === item.id && "text-white",
+                pathname === item.id && "text-white",
               )}
             >
               <item.icon className="h-5 w-5" />
