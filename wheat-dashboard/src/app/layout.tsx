@@ -1,14 +1,14 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import { cn } from "@/lib/utils"
+import Providers from "@/components/Providers"
 import type React from "react" // Added import for React
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "WheatChain Dashboard",
-  description: "WheatChain - SUI Network Dashboard",
+  title: "Cetus Terminal Integration",
+  description: "A Next.js app with Cetus Terminal integration",
 }
 
 export default function RootLayout({
@@ -17,8 +17,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className={cn(inter.className, "bg-background text-foreground")}>{children}</body>
+    <html lang="en">
+      <body className={inter.className}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   )
 }
